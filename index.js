@@ -31,6 +31,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+
 // mongoose.connect(url, {
 //     useNewUrlParser:true,
 //     useCreateIndex:true,
@@ -42,13 +43,13 @@ app.use(bodyParser.json());
 //     console.log('connected...')
 // })
 // Public directory
-/*
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+app.use(express.static(__dirname + '/public'));
+app.get('/', (req,res) =>{
+    res.sendFile(path.join(__dirname, 'public/blog.html'));
 });
-*/
+
 const postRoutes = require('./routes/apis/post');
-app.use('/post/api', postRoutes)
+app.use('/api', postRoutes)
 
 app.listen(port, () => {
     console.log('servidor listo')
