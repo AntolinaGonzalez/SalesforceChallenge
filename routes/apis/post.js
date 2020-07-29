@@ -6,13 +6,12 @@ const path = require('path');
 
 var rawdata = fs.readFileSync(path.join(__dirname, 'blogPost.json'));
 var data = JSON.parse(rawdata);
-console.log(data);
+
 
 
 router.get('/generateSampleData', async (req, res) => {
     for( dato in data){
         try{
-            console.log(dato)
             const title = data[dato]['title'];
             const text = data[dato]['text'];
             //console.log(title);
@@ -35,7 +34,7 @@ router.get('/generateSampleData', async (req, res) => {
 */
 //Get all the posts 
 router.get('/', (req,res, next) =>{
-    Post.find()
+    Post.find({}).sort({createdAt:-1})
     .then((posts) => {
         res.json(posts);
         
