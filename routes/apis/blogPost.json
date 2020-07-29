@@ -1,50 +1,50 @@
 [
     {
-        "title": "One Post",
-        "text": "This post is about learning NodeJS ---- RUN!"
+        "title": "Finanzas y economía",
+        "text": "Una buena fuente de recursos económicos y financieros. datos: útiles para construir modelos que permitan predecir indicadores económicos o precios de acciones."
     },
     {
-        "title": "Two Post",
-        "text": "Learning agiles methodologies"
+        "title": "ImageNet",
+        "text": "El conjunto de datos de imagen de facto para nuevos algoritmos, organizado de acuerdo con la jerarquía de WordNet, en la que cientos y miles de imágenes representan cada nodo de la jerarquía."
     },
     {
-        "title": "Making a test",
-        "text": "Sucessfully updated"
+        "title": "Procesamiento del lenguaje natural",
+        "text": "Conjunto de datos HotspotQA : pregunta que responde al conjunto de datos con natura I, preguntas de múltiples saltos, con una fuerte supervisión de los datos de apoyo para permitir sistemas de respuesta a preguntas más explicables."
 
     },
     {
        
-        "title": "Making a test again",
-        "text": "Sucessfully updated microservices"
+        "title": "Wikipedia",
+        "text": "Datos de enlaces de Wikipedia : El texto completo de Wikipedia. El conjunto de datos contiene casi 1.9 mil millones de palabras de más de 4 millones de artículos. Puede buscar por palabra, frase o parte de un párrafo."
         
     },
     {
        
-        "title": "SUffering with APIS",
-        "text": "Suffer and just suffer"
+        "title": "Autopartido",
+        "text": "Berkeley DeepDrive BDD100k : Actualmente, el conjunto de datos más grande para la IA autodirigida. Contiene más de 100,000 videos de más de 1,100 horas de conducción en diferentes momentos del día y condiciones climáticas. Las imágenes anotadas provienen de las áreas de Nueva York y San Francisco."
         
     },
     {
        
-        "title": "Making a test again two",
-        "text": "Sucessfully updated blinfing"
+        "title": "Robotica",
+        "text": "Coche robótico de Oxford : Más de 100 repeticiones de la misma ruta a través de Oxford, Reino Unido, capturadas durante un año. El conjunto de datos captura diferentes combinaciones de clima, tráfico y peatones, junto con cambios a largo plazo como construcción y obras viales."
         
     },
     {
         
-        "title": "Do not make me",
-        "text": "gloww one more timee"
+        "title": "Clinical",
+        "text": "MIMIC-III : Conjunto de datos disponible de forma abierta desarrollado por el laboratorio de MIT para fisiología computacional, que incluye datos de salud no identificados asociados con ~ 40,000 pacientes de cuidados críticos. Incluye datos demográficos, signos vitales, pruebas de laboratorio, medicamentos y más"
         
     },
     {
        
-        "title": "I do not wanan hurt",
-        "text": "Anymore"
+        "title": "Lista de usuarios conectados",
+        "text": "Una vez que se dispone de la lista de usuarios conectados, puede notificar a esos usuarios que se deben desconectar de la geodatabase. Esto se puede hacer obteniendo una lista de los usuarios y sus direcciones de correo electrónico asociadas. Para hacerlo más sencillo, en este ejemplo se supone que cada usuario conectado a la geodatabase tiene como nombre base su dirección de correo electrónico. Este ejemplo se puede alterar a fin de tener otros métodos para determinar las direcciones de correo electrónico."
     },
     {
        
-        "title": "Dreaming",
-        "text": "with money"
+        "title": "Enviar un mensaje de correo electronico",
+        "text": "Utilice la lista de correos electrónicos para enviar mensajes de correo electrónico a los usuarios de Phyton para informarles de que deben desconectarse de la geodatabase. En este ejemplo se utiliza el módulo smtplib de Python, pero hay otras opciones para el envío de correos electrónicos a través de módulos no estándar."
         
     }
 ]
