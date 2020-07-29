@@ -42,6 +42,7 @@ app.use(bodyParser.json());
 // con.on('open', () => {
 //     console.log('connected...')
 // })
+
 // Public directory
 app.use(express.static(__dirname + '/public'));
 app.get('/', (req,res) =>{
