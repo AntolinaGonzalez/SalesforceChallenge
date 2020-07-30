@@ -29,6 +29,27 @@ router.get('/generateSampleData', async (req, res) => {
     }
     res.json({message:"success"})
 }); 
+router.post('/:id', (req, res, next) =>{
+    //find the post by ID from the database
+    let id = req.params.id;
+    Post.findById(id)
+        .then(post => {
+            post.title = req.body.title;
+            post.text = req.body.text;
+            post.save()
+                .then(post => {
+                     res.send({
+                        message: 'Post updated',
+                        status: 'success', 
+                        post: post
+                        })
+                    
+        })
+                .catch(err => console.log(err))
+    })
+         .catch(err => console.log(err))
+
+});
 /*
 
 */
@@ -70,27 +91,7 @@ router.post('/', (req,res, next) => {
 });
 
 //update an existing post
-router.post('/:id', (req, res, next) =>{
-    //find the post by ID from the database
-    let id = req.params.id;
-    Post.findById(id)
-        .then(post => {
-            post.title = req.body.title;
-            post.text = req.body.text;
-            post.save()
-                .then(post => {
-                     res.send({
-                        message: 'Post updated',
-                        status: 'success', 
-                        post: post
-                        })
-                    
-        })
-                .catch(err => console.log(err))
-    })
-         .catch(err => console.log(err))
 
-});
 //delete all the posts
 router.delete('/', (req,res, next) =>{
         Post.deleteMany({})
