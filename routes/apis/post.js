@@ -34,7 +34,7 @@ router.get('/generateSampleData', async (req, res) => {
 */
 //Get all the posts 
 router.get('/', (req,res, next) =>{
-    Post.find({}).sort({createdAt:-1})
+    Post.find({}).sort({updatedAt:-1})
     .then((posts) => {
         res.json(posts);
         
@@ -50,7 +50,8 @@ router.get('/:id', (req,res, next) =>{
             res.json(posts);
             })
          .catch(err => console.log(err))
-    
+   
+    //console.log(req.body);
 });
 //create a post 
 
@@ -83,6 +84,7 @@ router.post('/:id', (req, res, next) =>{
                         status: 'success', 
                         post: post
                         })
+                    
         })
                 .catch(err => console.log(err))
     })
