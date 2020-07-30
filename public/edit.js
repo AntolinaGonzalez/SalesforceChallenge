@@ -1,4 +1,9 @@
+//Code by Antolina Gonzalez
+
 $(function(){
+
+    //UPDATE or EDIT A POST
+
     $('#newPost').ready(function(){
         let id = $('#idPosteo').text();
         $.ajax({ url: '/api/' + id,
@@ -29,6 +34,7 @@ $(function(){
                     newTitle.val('');
                     newText.val('');
                     $('#buttonPost').click();
+                    window.location = "blog.html";
                 }
 
         });
