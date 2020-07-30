@@ -20,10 +20,10 @@
         <h1 class="nuevoPost">Nuevo Post</h1>
         <form action="" id="newPost" method="POST">
             <label for="" class="label-area">Title: </label>
-            <input type="text" name="" id="newTitle">
+            <input type="text" name="" id="newTitle" required oninvalid="alert('Debes completar el titulo');">
             <br>
             <label for="" class="label-area">Text: </label>
-            <textarea name="" id="newText" cols="30" rows="10"></textarea>
+            <textarea name="" id="newText" cols="30" rows="10" oninvalid="alert('Debes completar el texto');" required></textarea>
             <br>
             <button type="submit" class="botonAgregar" id="buttonPost">Agregar </button>
         </form>

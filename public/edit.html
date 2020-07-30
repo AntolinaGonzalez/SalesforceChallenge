@@ -22,10 +22,10 @@
 
     <form action="" id="newPost" method="POST">
         <label for="" class="label-area">Title: </label>
-        <input type="text" name="" id="newTitle" placeholder="Title" value="">
+        <input type="text" name="" id="newTitle" placeholder="Title" value="" required oninvalid="alert('Debes completar el titulo');">
         <br>
         <label for="" class="label-area">Text:</label>
-        <textarea name="" id="newText" cols="30" rows="10"></textarea>
+        <textarea name="" id="newText" cols="30" rows="10" oninvalid="alert('Debes completar el texto');" required ></textarea>
         <br>
         <button type="submit" id="buttonPost">Agregar </button>
     </form>

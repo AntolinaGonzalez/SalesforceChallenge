@@ -34,7 +34,7 @@ $(function(){
                     newTitle.val('');
                     newText.val('');
                     $('#buttonPost').click();
-                    window.location = "blog.html";
+                    window.location = "/";
                 }
 
         });

@@ -30,7 +30,7 @@ header h1{
 }
 
 /* blog.html */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 900px) {
     .aside-left{
         float: left;
         width: 35%;
@@ -40,7 +40,13 @@ header h1{
         width: 60%;
         margin-right: 20px;
     }
+    .Descripcion-Post{
+        display: flex;
+        justify-content: space-between;
+        
+    }
 }
+
 .aside-left h1, .aside-right h1{
     font-family: sans-serif;
     color: brown;
@@ -84,11 +90,7 @@ header h1{
     margin-bottom: 10px;
 }
 
-.Descripcion-Post{
-    display: flex;
-    justify-content: space-between;
-    
-}
+
 
 /* acciones de los post */
 .acciones {
