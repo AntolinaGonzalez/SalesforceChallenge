@@ -7,8 +7,6 @@ const path = require('path');
 var rawdata = fs.readFileSync(path.join(__dirname, 'blogPost.json'));
 var data = JSON.parse(rawdata);
 
-
-
 router.get('/generateSampleData', async (req, res) => {
     for( dato in data){
         try{
