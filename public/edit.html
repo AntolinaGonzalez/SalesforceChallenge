@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>My Blog</h1>
+    <h2>Editar Post</h2>
+    <!-- mostrar todos los post ordenados por fechas recientes -->
+    <form action="" id="editPost" method="POST">
+        <h1 id="hola"></h1>
+        <label for="">Title</label>
+        <input type="text" name="" id="newTitle" placeholder="Title" value="">
+        <br>
+        <label for="">Text</label>
+        <textarea name="" id="newText" cols="30" rows="10"></textarea>
+        <br>
+        <button type="submit" id="buttonPost">Agregar </button>
+    </form>
+    
+   <!-- <script src="main.js"></script> -->
+   <script>
+       function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+    return vars;   
+    }
+    var atributos = getUrlVars()
+    var newTitle = document.getElementById('newTitle').placeholder = atributos.title;
+    
+    console.log(atributos.title)
+   </script>
+</body>
+</html>
