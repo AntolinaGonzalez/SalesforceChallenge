@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/cf5dc9ec56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-    <h1>My Blog</h1>
-    <h2>Editar Post</h2>
+    <main class="w3-container ">
+        <header>
+            <h1>My Blog</h1>
+        </header>
+    
+    <h1 class="nuevoPost">Editar Post</h1>
     <!-- mostrar todos los post ordenados por fechas recientes -->
-    <form action="" id="editPost" method="POST">
-        <h1 id="hola"></h1>
-        <label for="">Title</label>
+    <P id="idPosteo" style="display: none;"></P>
+
+    <form action="" id="newPost" method="POST">
+        <label for="" class="label-area">Title</label>
         <input type="text" name="" id="newTitle" placeholder="Title" value="">
         <br>
-        <label for="">Text</label>
+        <label for="" class="label-area">Text</label>
         <textarea name="" id="newText" cols="30" rows="10"></textarea>
         <br>
         <button type="submit" id="buttonPost">Agregar </button>
     </form>
+
+    </main>
     
-   <!-- <script src="main.js"></script> -->
+   <script src="edit.js"></script>
    <script>
        function getUrlVars() {
             var vars = {};
@@ -31,9 +41,12 @@
     return vars;   
     }
     var atributos = getUrlVars()
-    var newTitle = document.getElementById('newTitle').placeholder = atributos.title;
-    
-    console.log(atributos.title)
+    var newTitle = document.getElementById('newTitle').value = decodeURI(atributos.title);
+    var newText = document.getElementById('newText').innerHTML = decodeURI(atributos.text);
+    var idPosteo = document.getElementById('idPosteo').innerHTML = decodeURI(atributos.var);
+    console.log(newTitle)
+    let id = $('#idPosteo').text();
+    //console.log(id);
    </script>
 </body>
 </html>
