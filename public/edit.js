@@ -1,7 +1,16 @@
 $(function(){
     $('#newPost').ready(function(){
-        
-        //console.log(id);
+        let id = $('#idPosteo').text();
+        $.ajax({ url: '/api/' + id,
+                method: 'GET',
+                 success: (function(element){
+                    var newText = document.getElementById('newText').innerHTML = element.text;
+                    var newTitle = document.getElementById('newTitle').value = element.title;
+                    console.log(newText);
+                    console.log(newTitle);
+                    
+                 })
+                });
     });
     $('#newPost').on('submit', function(e){
         let id = $('#idPosteo').text();
