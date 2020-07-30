@@ -41,12 +41,12 @@
     return vars;   
     }
     var atributos = getUrlVars()
-    var newTitle = document.getElementById('newTitle').value = decodeURI(atributos.title);
-    var newText = document.getElementById('newText').innerHTML = decodeURI(atributos.text);
-    var idPosteo = document.getElementById('idPosteo').innerHTML = decodeURI(atributos.var);
+    //var newTitle = document.getElementById('newTitle').value = decodeURI(atributos.title);
+    //var newText = document.getElementById('newText').innerHTML = decodeURI(atributos.text);
+    var idPosteo = document.getElementById('idPosteo').innerHTML = decodeURI(atributos.id);
     console.log(newTitle)
     let id = $('#idPosteo').text();
-    //console.log(id);
+    console.log(id);
    </script>
 </body>
 </html>
