@@ -1,41 +1,43 @@
-
+//Code by Antolina Gonzalez
+/**
+ *
+ *
+ * @param {objeto con los datos de un post, se utiliza 
+ * para obtener el id de un post en particular} element
+ */
 var traerDatos = (element) =>{
-    
     var id = element._id;
     var title = element.title;
     var text = element.text;
     console.log(element._id)
-    
-        //var preProcesado = datos.json[1].title
     window.location = "/edit.html?id="+id;
-   
-    //return datos;
+    
 }
 
 $(function(){
 
     //get all the posts
     $('#getPost').ready(function(){
+        
         $.ajax({ url: '/api',
                 context: document.body,
                 success: function(posts){
                     let cont = posts.length + 1;
                     let posteos = $('.aside-right');
-                   
                     posts.forEach(element => {
                         cont = cont - 1;
                         posteos.append(`
                         <div class="bordes-Post" >
-                            <p style="display: none;" class="idPost" >${element._id}</p>
-                            <div class="Descripcion-Post">
+                            <div style="display: none;" class="idPost" >${element._id}</div>
+                            <div class="Descripcion-Post" id="${element._id}" >
                                 <div>
-                                    <h3>Post ${cont}</h1>
+                                    <h3 class="numPost" >Post ${cont}</h1>
                                 </div>
                                 <div>
-                                    <h3>${element.updatedAt}<h3>
+                                    <h3 class="fechaPost">${element.updatedAt}<h3>
                                 </div>
                             </div>
-                            <h2 class="color title" >${element.title}</h1>
+                            <h2 class="titulo title" >${element.title}</h1>
                             <h2 class="text">${element.text}</h2>
                             <div class="acciones">
                                 <button class="deletePost"><i class="fas fa-trash-alt"></i></button>
@@ -51,6 +53,7 @@ $(function(){
      $('#menu-Post').ready(function(){
         $.ajax({ url: '/api',
                 context: document.body,
+                
                 success: function(posts){
                     let cont = posts.length + 1;
                     //console.log(posts)
@@ -59,6 +62,7 @@ $(function(){
                         cont = cont -1;
                         posteos.append(`
                         <div class="Past-Post" >
+                        <a href="#${element._id}">
                             <div>
                                 <i class="fas fa-angle-right"></i>
                             </div>
@@ -68,6 +72,7 @@ $(function(){
                             <div>
                                 <h3>Post ${cont}</h3>
                             </div>
+                            </a>
                         </div>
                         `
                         )
@@ -91,6 +96,7 @@ $(function(){
                     newTitle.val('');
                     newText.val('');
                     $('#buttonPost').click();
+                    window.location = "blog.html";
                 }
 
         });
@@ -131,6 +137,8 @@ $(function(){
                 $('.loading').load("blog.html");
                 })
         });
-    })
+    });
+    
+    //Para editar un posteo ir a edit.js 
 });
 
