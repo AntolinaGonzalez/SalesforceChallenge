@@ -1,6 +1,6 @@
 
 var traerDatos = (element) =>{
-    console.log("Anto es una nena ninda")
+    
     var id = element._id;
     var title = element.title;
     var text = element.text;
@@ -96,11 +96,21 @@ $(function(){
 
         });
     });
-    $('#editPost').on('submit', function(e){
-        e.preventDefault();
-        let newTitle = $('#newTitle');
-        let newText = $('#newText');
-        $.ajax({ url: '/api',
+    // $('#editPost').ready(function(){
+    //     let id = $('#idPosteo').text();
+    //     console.log(id);
+    //     let newTitle = $('#newTitle').val();
+    //     let newText = $('#newText').text();
+    //     console.log(newTitle);
+    //     console.log(newText);
+    // });
+
+    $('#editPost').on('submit', function(){
+        let id = $('#idPosteo').text();
+        console.log(id);
+        let newTitle = $('#newTitle').val();
+        let newText = $('#newText').text();
+        $.ajax({ url: '/api/' + id,
                 method : 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -111,7 +121,34 @@ $(function(){
                     console.log(response);
                     newTitle.val('');
                     newText.val('');
-                    $('#buttonPost').click();
+                }
+
+        });
+    });
+    $('#editPrueba').ready(function(){
+        let id = '5f22b6070b1a091e8a3c9cca'
+        console.log(id);
+        let newTitle = $('#newTitle').val();
+        let newText = $('#newText').text();
+        //console.log(newTitle);
+        //console.log(newText);
+    });
+    $('#editPrueba').on('submit', function(){
+        let id = '5f22b6070b1a091e8a3c9cca';
+        console.log(id);
+        let newTitle = $('#newTitle');
+        let newText = $('#newText');
+        $.ajax({ url: '/api/' + id,
+                method : 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    title : newTitle.val(),
+                    text : newText.val()
+                }),
+                success: function(response){
+                    console.log(response);
+                    newTitle.val('');
+                    newText.val('');
                 }
 
         });
