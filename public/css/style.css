@@ -98,8 +98,8 @@ font-size: 20px;
 margin: auto;
 }
 form input, form textarea{
-    border: solid;
-    background-color: sandybrown;
+    border: solid 0.2px;
+    background-color: blanchedalmond;
 }
 .label-area{
     display: flex;
