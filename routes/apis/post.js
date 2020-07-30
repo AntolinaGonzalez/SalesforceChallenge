@@ -1,11 +1,17 @@
+//Code by Antolina Gonzalez
+
+//rutas API
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const Post = require('../../modules/Post');
 const path = require('path');
 
+//obtener dataser blogPost.json
 var rawdata = fs.readFileSync(path.join(__dirname, 'blogPost.json'));
 var data = JSON.parse(rawdata);
+
+//Generar datos 
 
 router.get('/generateSampleData', async (req, res) => {
     for( dato in data){
@@ -27,8 +33,9 @@ router.get('/generateSampleData', async (req, res) => {
     }
     res.json({message:"success"})
 }); 
+
+//update a post
 router.post('/:id', (req, res, next) =>{
-    //find the post by ID from the database
     let id = req.params.id;
     Post.findById(id)
         .then(post => {
@@ -48,9 +55,7 @@ router.post('/:id', (req, res, next) =>{
          .catch(err => console.log(err))
 
 });
-/*
 
-*/
 //Get all the posts 
 router.get('/', (req,res, next) =>{
     Post.find({}).sort({updatedAt:-1})
@@ -69,11 +74,9 @@ router.get('/:id', (req,res, next) =>{
             res.json(posts);
             })
          .catch(err => console.log(err))
-   
-    //console.log(req.body);
 });
-//create a post 
 
+//create a post 
 router.post('/', (req,res, next) => {
     const title = req.body.title;
     const text = req.body.text;
@@ -87,8 +90,6 @@ router.post('/', (req,res, next) => {
     })
     .catch(err => console.log(err));
 });
-
-//update an existing post
 
 //delete all the posts
 router.delete('/', (req,res, next) =>{
@@ -123,12 +124,5 @@ router.delete('/:id', (req,res,next) => {
     })
          .catch(err => console.log(err))
 })
-
-//Loads sample data into the blog --no anda --
-
-   
-    
-
-
 
 module.exports = router;
