@@ -38,7 +38,6 @@ $(function(){
                             <h2 class="color title" >${element.title}</h1>
                             <h2 class="text">${element.text}</h2>
                             <div class="acciones">
-                                <a href="#" onclick="traerDatos()" ><i class="fas fa-plus"></i>Editar</a>
                                 <button class="deletePost"><i class="fas fa-trash-alt"></i></button>
                                 <button class="editPost" ><i class="fas fa-edit"></i></button>
                             </div>
@@ -96,84 +95,7 @@ $(function(){
 
         });
     });
-    // $('#editPost').ready(function(){
-    //     let id = $('#idPosteo').text();
-    //     console.log(id);
-    //     let newTitle = $('#newTitle').val();
-    //     let newText = $('#newText').text();
-    //     console.log(newTitle);
-    //     console.log(newText);
-    // });
-
-    $('#editPost').on('submit', function(){
-        let id = $('#idPosteo').text();
-        console.log(id);
-        let newTitle = $('#newTitle').val();
-        let newText = $('#newText').text();
-        $.ajax({ url: '/api/' + id,
-                method : 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    title : newTitle.val(),
-                    text : newText.val()
-                }),
-                success: function(response){
-                    console.log(response);
-                    newTitle.val('');
-                    newText.val('');
-                }
-
-        });
-    });
-    $('#editPrueba').ready(function(){
-        let id = '5f22b6070b1a091e8a3c9cca'
-        console.log(id);
-        let newTitle = $('#newTitle').val();
-        let newText = $('#newText').text();
-        //console.log(newTitle);
-        //console.log(newText);
-    });
-    $('#editPrueba').on('submit', function(){
-        let id = '5f22b6070b1a091e8a3c9cca';
-        console.log(id);
-        let newTitle = $('#newTitle');
-        let newText = $('#newText');
-        $.ajax({ url: '/api/' + id,
-                method : 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    title : newTitle.val(),
-                    text : newText.val()
-                }),
-                success: function(response){
-                    console.log(response);
-                    newTitle.val('');
-                    newText.val('');
-                }
-
-        });
-    });
-
-    //UPDATE A POST --sin terminar--
-    // $('.editPost').on('click', function(e){
-    //     e.preventDefault();
-    //     let newTitle = $('#newTitle');
-    //     let newText = $('#newText');
-    //     $.ajax({ url: '/api',
-    //             method : 'POST',
-    //             contentType: 'application/json',
-    //             data: JSON.stringify({
-    //                 title : newTitle.val(),
-    //                 text : newText.val()
-    //             }),
-    //             success: function(response){
-    //                 console.log(response);
-                    
-    //                 $('#buttonPost').click();
-    //             }
-
-    //     });
-    // });
+    //get a post 
     $('#getPost').on('click', '.editPost', function(){
        let posteo = $(this).closest('.bordes-Post');
         let id = posteo.find('.idPost').text();
@@ -187,7 +109,7 @@ $(function(){
                  })
          });
      });
-
+     //delete a post
     $('#getPost').on('click','.deletePost', function(){
         let posteo = $(this).closest('.bordes-Post');
         let id = posteo.find('.idPost').text();
@@ -199,6 +121,7 @@ $(function(){
                 })
         });
     });
+    //delete all
     $('#deleteall').on('click' ,function(){
         
         $.ajax({ url: '/api/',
