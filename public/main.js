@@ -7,7 +7,7 @@ var traerDatos = (element) =>{
     console.log(element._id)
     
         //var preProcesado = datos.json[1].title
-    window.location = "/edit.html?var="+id+"&title="+title+"&text="+text;
+    window.location = "/edit.html?id="+id;
    
     //return datos;
 }
