@@ -1,3 +1,5 @@
+//code by Antolina Gonzalez
+//server
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
@@ -9,7 +11,7 @@ const app = express()
 
 const db = require('./config/db').database;
 
-//database connection 
+//Coneccion a la base de datos
 mongoose.connect(db,{
          useNewUrlParser:true,
          useCreateIndex:true,
@@ -27,31 +29,24 @@ const port = process.env.PORT || 5000;
 //Middleware cors
 app.use(cors());
 
-// BpodyParser middleware
+// BodyParser middleware
 
 app.use(bodyParser.json());
 
+// Directorio public donde se encuentran los archivos estaticos
 
-// mongoose.connect(url, {
-//     useNewUrlParser:true,
-//     useCreateIndex:true,
-//     useUnifiedTopology:true
-// })
-// const con = mongoose.connection
-
-// con.on('open', () => {
-//     console.log('connected...')
-// })
-
-// Public directory
 app.use(express.static(__dirname + '/public'));
+
+//direccionar como pagina principal blog.html
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, 'public/blog.html'));
 });
 
+//require las rutas apis
 const postRoutes = require('./routes/apis/post');
 app.use('/api', postRoutes)
 
+//puerto 
 app.listen(port, () => {
     console.log('servidor listo')
 });

@@ -1,5 +1,0 @@
-{
-    "env"= {
-        "PWADMIN" : "administrador"
-    }
-}
