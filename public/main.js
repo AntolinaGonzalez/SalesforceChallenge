@@ -115,7 +115,6 @@ $(function(){
                 }),
                 success: function(response){
                     console.log(response);
-                    $('#buttonPost').click();
                     window.location = "/";
                 }
 
