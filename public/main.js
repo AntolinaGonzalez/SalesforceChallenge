@@ -26,6 +26,15 @@ $(function(){
                     let posteos = $('.aside-right');
                     posts.forEach(element => {
                         cont = cont - 1;
+                        var dateObject = new Date(element.updatedAt);
+                        var day = dateObject.getDate();
+                        var month = dateObject.getMonth() + 1;
+                        var year = dateObject.getFullYear();
+                        var hour = dateObject.getHours();
+                        var minutes = dateObject.getMinutes();
+                        if(minutes < 10) {
+                            minutes = "0" + minutes;
+                        }
                         posteos.append(`
                         <div class="bordes-Post" >
                             <div style="display: none;" class="idPost" >${element._id}</div>
@@ -34,7 +43,7 @@ $(function(){
                                     <h3 class="numPost" >Post ${cont}</h1>
                                 </div>
                                 <div>
-                                    <h3 class="fechaPost">${element.updatedAt}<h3>
+                                    <h3 class="fechaPost">${day}/${month}/${year}-${hour}:${minutes}<h3>
                                 </div>
                             </div>
                             <h2 class="titulo title" >${element.title}</h1>
@@ -56,10 +65,19 @@ $(function(){
                 
                 success: function(posts){
                     let cont = posts.length + 1;
-                    //console.log(posts)
                    let posteos = $('.aside-left');
                     posts.forEach(element => {
                         cont = cont -1;
+                        var dateObject = new Date(element.updatedAt);
+                        var day = dateObject.getDate();
+                        var month = dateObject.getMonth() + 1;
+                        var year = dateObject.getFullYear();
+                        var hour = dateObject.getHours();
+                        var minutes = dateObject.getMinutes();
+                        if(minutes < 10) {
+                            minutes = "0" + minutes;
+                            console.log(minutes)
+                        }
                         posteos.append(`
                         <div class="Past-Post" >
                         <a href="#${element._id}">
@@ -67,7 +85,7 @@ $(function(){
                                 <i class="fas fa-angle-right"></i>
                             </div>
                             <div>
-                                <h3>${element.updatedAt}</h1>
+                                <h3>${day}/${month}/${year}-${hour}:${minutes}</h3>
                             </div>
                             <div>
                                 <h3>Post ${cont}</h3>
