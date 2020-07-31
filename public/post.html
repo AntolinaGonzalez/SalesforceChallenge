@@ -1,6 +1,5 @@
 <!-- Code by Antolina Gonzalez -->
-
-<!-- fomulario para ingresar un nuevo post -->
+<!-- pagina principal -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,27 +11,34 @@
     <script src="https://kit.fontawesome.com/cf5dc9ec56.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body>
+<body class="loading">
     <main class="w3-container ">
         <header>
             <h1>My Blog</h1>
         </header>
-        <h1 class="nuevoPost">Nuevo Post</h1>
-        <form action="" id="newPost" method="POST">
-            <label for="" class="label-area">Title: </label>
-            <input type="text" name="" id="newTitle" required oninvalid="alert('Debes completar el titulo');">
-            <br>
-            <label for="" class="label-area">Text: </label>
-            <textarea name="" id="newText" cols="30" rows="10" oninvalid="alert('Debes completar el texto');" required></textarea>
-            <br>
-            <button type="submit" class="botonAgregar" id="buttonPost">Agregar </button>
-        </form>
+        <!-- mostrar menu de los post-->
+       <div id="description-post">
+        <p id="Date"></p>
+        <p id="idPosts" style="display: none;"></p>
+        <h1 id="Title"></h1>
+        <h2 id="Texto"></h2>
+       </div>
         
     </main>
     
-    <!-- mostrar todos los post ordenados por fechas recientes -->
-   
-    <script src="main.js"></script>
+    <script src="descripcion.js"></script>
+    <script>
+        function getUrlVars() {
+             var vars = {};
+             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+             vars[key] = value;
+         });
+     return vars;   
+     }
+     var atributos = getUrlVars()
+    document.getElementById('idPosts').innerHTML =atributos.id;
+    
+    </script>
    
 </body>
 </html>

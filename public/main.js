@@ -7,16 +7,19 @@
  */
 var traerDatos = (element) =>{
     var id = element._id;
-    var title = element.title;
-    var text = element.text;
     console.log(element._id)
     window.location = "/edit.html?id="+id;
     
 }
+var verUnPost = (element) =>{
+    var id = element._id;
+    console.log(element._id)
+    window.location = "/post.html?id="+id;
+}
 
 $(function(){
 
-    //get all the posts
+    //obtener todos los posteos
     $('#getPost').ready(function(){
         
         $.ajax({ url: '/api',
@@ -49,6 +52,7 @@ $(function(){
                             <h2 class="titulo title" >${element.title}</h1>
                             <h2 class="text">${element.text}</h2>
                             <div class="acciones">
+                                <button class="lookapost"><i class="fas fa-eye"></i></button>
                                 <button class="deletePost"><i class="fas fa-trash-alt"></i></button>
                                 <button class="editPost" ><i class="fas fa-edit"></i></button>
                             </div>
@@ -58,7 +62,7 @@ $(function(){
                     });
                 }});
         });
-     //get the menu of the post
+     //obtener un menu de los post mas recientes
      $('#menu-Post').ready(function(){
         $.ajax({ url: '/api',
                 context: document.body,
@@ -76,7 +80,7 @@ $(function(){
                         var minutes = dateObject.getMinutes();
                         if(minutes < 10) {
                             minutes = "0" + minutes;
-                            console.log(minutes)
+                            //console.log(minutes)
                         }
                         posteos.append(`
                         <div class="Past-Post" >
@@ -97,7 +101,7 @@ $(function(){
                     });
                 }});
         });
-    //CREATE A POST
+    //crear un nuevo post
     $('#newPost').on('submit', function(e){
         e.preventDefault();
         let newTitle = $('#newTitle');
@@ -111,8 +115,6 @@ $(function(){
                 }),
                 success: function(response){
                     console.log(response);
-                    newTitle.val('');
-                    newText.val('');
                     $('#buttonPost').click();
                     window.location = "/";
                 }
@@ -133,6 +135,19 @@ $(function(){
                  })
          });
      });
+     $('#getPost').on('click', '.lookapost', function(){
+        let posteo = $(this).closest('.bordes-Post');
+         let id = posteo.find('.idPost').text();
+          let title = posteo.find('.title').text();
+          let text = posteo.find('.text').text()
+                  
+          $.ajax({ url: '/api/' + id,
+                 method: 'GET',
+                  success: (function(element){
+                    verUnPost(element);
+                  })
+          });
+      });
      //delete a post
     $('#getPost').on('click','.deletePost', function(){
         let posteo = $(this).closest('.bordes-Post');

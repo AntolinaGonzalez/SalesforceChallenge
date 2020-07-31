@@ -27,7 +27,7 @@ mongoose.connect(db,{
 const port = process.env.PORT || 5000;
 
 //Middleware cors
-app.use(cors());
+//app.use(cors());
 
 // BodyParser middleware
 

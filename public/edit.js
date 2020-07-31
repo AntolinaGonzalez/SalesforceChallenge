@@ -9,10 +9,8 @@ $(function(){
         $.ajax({ url: '/api/' + id,
                 method: 'GET',
                  success: (function(element){
-                    var newText = document.getElementById('newText').innerHTML = element.text;
-                    var newTitle = document.getElementById('newTitle').value = element.title;
-                    console.log(newText);
-                    console.log(newTitle);
+                   document.getElementById('newText').innerHTML = element.text;
+                    document.getElementById('newTitle').value = element.title;
                     
                  })
                 });
@@ -31,12 +29,11 @@ $(function(){
                 }),
                 success: function(response){
                     console.log(response);
-                    newTitle.val('');
-                    newText.val('');
                     $('#buttonPost').click();
                     window.location = "/";
                 }
 
         });
     });
+
 });
