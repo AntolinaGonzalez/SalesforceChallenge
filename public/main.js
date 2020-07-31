@@ -62,6 +62,19 @@ $(function(){
                     });
                 }});
         });
+    
+    //obtener datos de ejemplo
+    $('#getData').on('click',function(){
+        
+        $.ajax({ url: '/api/generateSampleData',
+                context: document.body,
+                success: function(posts){
+                    console.log(posts);
+                     // ACTUALIZAR LA PAGINA tiene errores
+                    $('.loading').load("blog.html");
+                }});
+        });
+
      //obtener un menu de los post mas recientes
      $('#menu-Post').ready(function(){
         $.ajax({ url: '/api',

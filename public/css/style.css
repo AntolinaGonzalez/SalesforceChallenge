@@ -77,7 +77,14 @@ header h1{
     border-radius: 10px;
     font-weight: bolder;
 }
-
+.plus-post button{
+    text-decoration: none;
+    background-color: brown;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bolder;
+}
 .plus-post a:hover{
     background-color: saddlebrown ;
     color: black;
